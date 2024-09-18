@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<!-- Loading Spinner -->
+<div *ngIf="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+  <i class="pi pi-spin pi-spinner text-4xl text-blue-500"></i>
+</div>
+
+<!-- Features Section -->
+<div *ngIf="!loading" id="features" class="mt-24 px-4 sm:px-10">
+  <div class="max-w-7xl w-full mx-auto">
+    <div class="grid lg:grid-cols-2 items-center gap-10">
+      <!-- Slide-in from left animation for the text -->
+      <div class="slide-in-left">
+        <h2 class="md:text-4xl text-3xl font-semibold mb-6">A Smarter Way to Connect Startups with Investors</h2>
+        <p>
+          Our platform provides a streamlined approach for startups and investors to connect. Entrepreneurs can easily 
+          showcase their projects to a global network of potential backers, while investors can discover innovative businesses 
+          with high growth potential.
+        </p>
+        
+      </div>
+
+      <!-- Slide-in from bottom animation for the features grid -->
+      <div class="grid sm:grid-cols-2 gap-8 slide-in-bottom">
+        <div class="p-6 flex gap-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
+          <div class="icon-bg">
+            <img src="assets/cog.svg" alt="Customization" class="w-8 h-8" />
+          </div>
+          <div>
+            <h3 class="text-gray-800 text-xl font-semibold mb-3">Customization</h3>
+            <p class="text-gray-600 text-sm">Tailor our product to suit your needs and expand your reach.</p>
+          </div>
+        </div>
+        <div class="p-6 flex gap-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
+          <div class="icon-bg">
+            <img src="assets/security-1.svg" alt="Security" class="w-8 h-8" />
+          </div>
+          <div>
+            <h3 class="text-gray-800 text-xl font-semibold mb-3">Security</h3>
+            <p class="text-gray-600 text-sm">Your data is protected by the latest security measures.</p>
+          </div>
+        </div>
+        <div class="p-6 flex gap-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
+          <div class="icon-bg">
+            <img src="assets/hand.svg" alt="Support" class="w-8 h-8" />
+          </div>
+          <div>
+            <h3 class="text-gray-800 text-xl font-semibold mb-3">Support</h3>
+            <p class="text-gray-600 text-sm">24/7 customer support for all your inquiries.</p>
+          </div>
+        </div>
+        <div class="p-6 flex gap-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
+          <div class="icon-bg">
+            <img src="assets/graph.svg" alt="Performance" class="w-8 h-8" />
+          </div>
+          <div>
+            <h3 class="text-gray-800 text-xl font-semibold mb-3">Performance</h3>
+            <p class="text-gray-600 text-sm">Experience blazing-fast performance with our product.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

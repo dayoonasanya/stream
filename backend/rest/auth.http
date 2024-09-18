@@ -3,8 +3,8 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "vp.victorpreston@gmail.com",
-  "password": "admin123",
+  "email": "dayo.onasanya@icloud.com",
+  "password": "CsB980898#",
   "role": "ADMIN"
 }
 

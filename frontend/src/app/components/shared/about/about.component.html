@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+  <i class="pi pi-spin pi-spinner text-4xl text-blue-500"></i>
+</div>
+
+<div *ngIf="!loading" id="about" class="px-4 sm:px-10 mt-40">
+  <div class="max-w-7xl w-full mx-auto">
+    <div class="grid md:grid-cols-2 items-center gap-10">
+      <!-- Enhanced Image Section with Zoom and Border -->
+      <div class="w-full h-full slide-in-bottom">
+        <img src="assets/team.webp" alt="Premium Benefits" class="rounded-lg shadow-lg w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      
+      <div class="slide-in-left">
+        <h2 class="md:text-4xl text-3xl font-semibold mb-6">Innovative Solutions for Growing Startups</h2>
+        <p>
+          Our platform is designed to empower startups by connecting them with investors who believe in innovation. 
+          We foster a community where groundbreaking ideas can thrive, and businesses can secure the funding they need to succeed. 
+          With a streamlined interface and powerful features, we help you present your projects, 
+          attract investors, and turn your vision into reality.
+        </p>
+
+        <!-- CEO Comment inside Card with Animation -->
+        <div class="mt-8">
+          <div class="bg-white p-6 shadow-lg rounded-lg hover:shadow-xl transition-all slide-in-card">
+            <div class="flex items-center">
+              <img src="assets/me.webp" class="w-12 h-12 rounded-full" />
+              <div class="ml-4">
+                <h4 class="font-semibold text-base">Adedayo Onasanya</h4>
+                <h5 class="text-base text-gray-600">A word from our CEO</h5>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p class="text-gray-700 italic">
+                "Our mission is to create opportunities for startups to access funding in a simple and transparent way, 
+                ensuring that innovative businesses can grow and succeed."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- What We Do Section with Rotating Cards -->
+    <div class="mt-16 slide-in-right">
+      <h2 class="md:text-3xl text-2xl font-semibold mb-6">What We Do?</h2>
+      <p class="text-gray-600">
+        At Stream, we specialize in helping startups and small businesses scale by providing access to crucial resources. 
+        Whether you're looking for funding, mentorship, or strategic partnerships, we've got the tools and the network to support your growth.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-10 mt-10">
+        <div *ngFor="let index of visibleCards" class="bg-white p-6 shadow-lg rounded-lg hover:shadow-xl transition-all rotate-in">
+          <img [src]="cards[index].icon" alt="{{ cards[index].title }} Icon" class="absolute top-4 right-4 w-8 h-8" />
+          <h4 class="text-lg font-semibold mb-4">{{ cards[index].title }}</h4>
+          <p>{{ cards[index].description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

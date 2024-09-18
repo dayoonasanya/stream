@@ -1,0 +1,22 @@
+nav {
+    width: 8rem; /* 192px */
+  }
+  
+  @media (max-width: 1024px) {
+    nav {
+      width: 10rem; /* Adjust for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+  
+    nav.show {
+      transform: translateX(0);
+    }
+  }
+  

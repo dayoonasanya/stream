@@ -1,0 +1,71 @@
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+.table tr {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.table tr:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.table tr:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+.table tr:hover {
+  background-color: #f1f5f9;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.pi {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.pi:hover {
+  opacity: 0.7;
+}
+
+.bg-opacity-50 {
+  opacity: 0.5;
+}

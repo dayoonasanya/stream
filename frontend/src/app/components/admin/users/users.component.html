@@ -1,0 +1,53 @@
+<div *ngIf="showNotification">
+  <app-notification
+    [message]="notificationMessage"
+    [type]="notificationType"
+    (close)="closeNotification()">
+  </app-notification>
+</div>
+
+<div class="font-[sans-serif] overflow-x-auto px-6">
+  <table class="table min-w-full bg-white shadow-lg rounded-lg">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="pl-4 w-8">
+          <input id="checkbox" type="checkbox" class="hidden peer" />
+          <label for="checkbox" class="relative flex items-center justify-center p-0.5">
+            <i class="pi pi-envelope"></i>
+          </label>
+        </th>
+        <th class="p-4 text-left text-sm font-semibold text-black">Email</th>
+        <th class="p-4 text-left text-sm font-semibold text-black">Role</th>
+        <th class="p-4 text-left text-sm font-semibold text-black">Active</th>
+        <th class="p-4 text-left text-sm font-semibold text-black">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users" class="odd:bg-blue-50">
+        <td class="pl-4 w-8">
+          <input id="checkbox{{ user.id }}" type="checkbox" class="hidden peer" />
+          <label for="checkbox{{ user.id }}" class="relative flex items-center justify-center p-0.5">
+            <i class="pi pi-user"></i>
+          </label>
+        </td>
+        <td class="p-4 text-sm text-black">{{ user.email }}</td>
+        <td class="p-4 text-sm text-black">{{ getRoleDisplay(user.role) }}</td>
+        <td class="p-4">
+          <label class="relative cursor-pointer">
+            <input type="checkbox" class="sr-only peer" [checked]="user.isActivated" (change)="toggleUserStatus(user)" />
+            <div class="w-11 h-6 flex items-center bg-gray-300 rounded-full peer peer-checked:after:translate-x-full after:absolute after:left-[2px] peer-checked:after:border-white after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+          </label>
+        </td>
+        <td class="p-4 flex">
+          <button class="mr-4" title="View" (click)="viewUser(user)">
+            <i class="pi pi-eye text-blue-500 hover:text-blue-700"></i>
+          </button>
+          <button class="mr-4" title="Delete" (click)="deleteUser(user.id)">
+            <i class="pi pi-trash text-red-500 hover:text-red-700"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

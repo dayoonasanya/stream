@@ -1,0 +1,88 @@
+.progress-bar {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e5e7eb;
+}
+
+.progress-fill {
+  background-color: #3b82f6;
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+}
+
+img {
+  transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.single-project-content {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.single-project-image {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+
+.slide-out-left {
+  animation: slideOutLeft 0.6s ease forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.6s ease forwards;
+}

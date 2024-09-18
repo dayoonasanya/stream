@@ -1,0 +1,29 @@
+footer {
+  background-color: #f9fafb;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+@media (max-width: 768px) {
+  footer div.grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  footer ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  footer .col-span-2 {
+    text-align: center;
+  }
+}
+

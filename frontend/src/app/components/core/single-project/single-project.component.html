@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="!loading && project" class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-white pt-32">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start space-y-8 md:space-y-0 md:space-x-12">
+    
+    <div class="w-full md:w-1/2 single-project-image">
+      <img 
+        *ngIf="project.images && project.images.length > 0" 
+        [src]="project.images[0].url" 
+        alt="Project Image" 
+        class="rounded-lg shadow-lg w-full h-full object-cover"
+      >
+    </div>
+
+    <div class="w-full md:w-1/2 flex flex-col space-y-8 single-project-content">
+      <div>
+        <h1 class="text-4xl font-bold text-gray-900">{{ project.title }}</h1>
+        <p class="mt-4 text-lg text-gray-600 leading-relaxed">{{ project.description }}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <p class="text-sm text-gray-500">Category</p>
+          <p class="font-semibold text-lg text-gray-800">{{ project.category }}</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <p class="text-sm text-gray-500">Target Amount</p>
+          <p class="font-semibold text-lg text-gray-800">${{ project.targetAmount | number }}</p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <p class="text-sm text-gray-500">Current Amount</p>
+          <p class="font-semibold text-lg text-gray-800">${{ project.currentAmount | number }}</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="relative w-full h-4 bg-gray-200 rounded-full">
+          <div
+            [style.width]="(project.currentAmount / project.targetAmount) * 100 + '%'"
+            class="absolute top-0 left-0 h-full bg-blue-500 rounded-full"
+          ></div>
+        </div>
+        <p class="text-sm text-gray-600">
+          Funding Progress: {{ (project.currentAmount / project.targetAmount) * 100 | number:'1.0-0' }}%
+        </p>
+      </div>
+
+      <div class="flex space-x-4">
+        <a 
+          *ngIf="project.githubLink" 
+          [href]="project.githubLink" 
+          target="_blank" 
+          class="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors"
+        >
+          <i class="pi pi-github mr-2"></i> GitHub Repo
+        </a>
+        <a 
+          *ngIf="project.landingPageLink" 
+          [href]="project.landingPageLink" 
+          target="_blank" 
+          class="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors"
+        >
+          <i class="pi pi-external-link mr-2"></i> Landing Page
+        </a>
+      </div>
+
+      <div class="flex justify-between">
+        <button 
+          class="flex items-center bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition-colors"
+          [routerLink]="['/home']"
+        >
+          <i class="pi pi-arrow-left mr-2"></i> Back
+        </button>
+
+        <button 
+          class="flex items-center bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+          (click)="supportProject()"
+        >
+           Support Project
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

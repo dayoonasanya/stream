@@ -1,0 +1,132 @@
+<div class="container mx-auto mt-5 max-w-3xl p-4 bg-white shadow-none rounded-lg pt-24">
+  <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Create New Project</h1>
+
+  <!-- Notification Component -->
+  <app-notification 
+    *ngIf="showNotification" 
+    [message]="notificationMessage" 
+    [type]="notificationType" 
+    (close)="showNotification = false">
+  </app-notification>
+
+  <form [formGroup]="createProjectForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Left Side Inputs -->
+      <div>
+        <label for="title" class="block text-sm font-medium text-gray-700">Project Title</label>
+        <input 
+          type="text" 
+          id="title" 
+          formControlName="title" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter project title">
+        <div *ngIf="createProjectForm.get('title')?.invalid && createProjectForm.get('title')?.touched" class="text-red-600 mt-1 text-xs">
+          Project title is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="targetAmount" class="block text-sm font-medium text-gray-700">Target Amount (USD)</label>
+        <input 
+          type="number" 
+          id="targetAmount" 
+          formControlName="targetAmount" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter target amount">
+        <div *ngIf="createProjectForm.get('targetAmount')?.invalid && createProjectForm.get('targetAmount')?.touched" class="text-red-600 mt-1 text-xs">
+          Target amount must be a valid number.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Right Side Inputs -->
+      <div>
+        <label for="type" class="block text-sm font-medium text-gray-700">Project Type</label>
+        <select 
+          id="type" 
+          formControlName="type" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+          <option value="" disabled>Select type</option>
+          <option value="ORGANIZATION_PROJECT">Organization</option>
+          <option value="STARTUP_PROJECT">Startup</option>
+        </select>
+        <div *ngIf="createProjectForm.get('type')?.invalid && createProjectForm.get('type')?.touched" class="text-red-600 mt-1 text-xs">
+          Project type is required.
+        </div>
+      </div>
+
+      <div>
+        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+        <input 
+          type="text" 
+          id="category" 
+          formControlName="category" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter category">
+        <div *ngIf="createProjectForm.get('category')?.invalid && createProjectForm.get('category')?.touched" class="text-red-600 mt-1 text-xs">
+          Category is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Width Inputs -->
+    <div class="grid grid-cols-1 gap-4">
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea 
+          id="description" 
+          formControlName="description" 
+          rows="3" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter project description"></textarea>
+        <div *ngIf="createProjectForm.get('description')?.invalid && createProjectForm.get('description')?.touched" class="text-red-600 mt-1 text-xs">
+          Project description is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- GitHub and Landing Page Links -->
+      <div>
+        <label for="githubLink" class="block text-sm font-medium text-gray-700">GitHub Link</label>
+        <input 
+          type="url" 
+          id="githubLink" 
+          formControlName="githubLink" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter GitHub repo link">
+      </div>
+      <div>
+        <label for="landingPageLink" class="block text-sm font-medium text-gray-700">Landing Page Link</label>
+        <input 
+          type="url" 
+          id="landingPageLink" 
+          formControlName="landingPageLink" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" 
+          placeholder="Enter landing page link">
+      </div>
+    </div>
+
+    <!-- Project Images -->
+    <div>
+      <label for="images" class="block text-sm font-medium text-gray-700">Project Images</label>
+      <input 
+        type="file" 
+        id="images" 
+        (change)="onFileChange($event)" 
+        multiple 
+        class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-right">
+      <button 
+        type="submit" 
+        [disabled]="createProjectForm.invalid" 
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600  shadow-md">
+        Create Project
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,70 @@
+<div class="mt-16 px-4 sm:px-10">
+  <h2 class="text-2xl font-semibold mb-6">Stream Projects</h2>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-spinner flex justify-center">
+    <i class="pi pi-spin pi-spinner text-4xl text-blue-500"></i>
+  </div>
+
+  <!-- Projects List -->
+  <div *ngIf="!loading && projects.length > 0" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div *ngFor="let project of projects" class="bg-white rounded-lg shadow-md hover:shadow-lg transition-all project-card w-full overflow-hidden">
+      <!-- Project Image -->
+      <div class="relative h-32 project-image">
+        <img 
+          *ngIf="project.images && project.images.length > 0" 
+          [src]="project.images[0].url" 
+          alt="Project Image" 
+          class="w-full h-full object-cover"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <h3 class="absolute bottom-2 left-2 right-2 font-bold text-sm text-white truncate">{{ project.title }}</h3>
+      </div>
+
+      <div class="p-3">
+
+        <!-- Project Details -->
+        <div class="mb-3 text-xs space-y-2 bg-gray-50 p-2 rounded">
+          <p class="flex justify-between items-center">
+            <span class="font-semibold text-gray-500">Category</span>
+            <span class="text-gray-700 bg-gray-200 px-2 py-1 rounded">{{ project.category }}</span>
+          </p>
+          <p class="flex justify-between items-center">
+            <span class="font-semibold text-gray-500">Target</span>
+            <span class="text-gray-700 font-mono">{{ project.targetAmount | number }} USDT</span>
+          </p>
+          <p class="flex justify-between items-center">
+            <span class="font-semibold text-gray-500">Current</span>
+            <span class="text-gray-700 font-mono">{{ project.currentAmount | number }} USDT</span>
+          </p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="relative mb-3">
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div 
+              class="bg-blue-500 h-2 rounded-full transition-all duration-500 ease-out"
+              [style.width]="(project.currentAmount / project.targetAmount) * 100 + '%'">
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-1 text-right">
+            {{ (project.currentAmount / project.targetAmount) * 100 | number:'1.0-0' }}% Funded
+          </p>
+        </div>
+
+        <!-- View Project Button -->
+        <button 
+          class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-4 py-2 rounded w-full transition-colors duration-200"
+          [routerLink]="['/project', project.id]"
+        >
+          View Project
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Projects Found -->
+  <div *ngIf="!loading && projects.length === 0" class="text-center text-gray-500">
+    <p>No projects found.</p>
+  </div>
+</div>

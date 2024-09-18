@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+
+<!-- Loading Spinner -->
+<div *ngIf="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+  <i class="pi pi-spin pi-spinner text-4xl text-blue-500"></i>
+</div>
+
+<!-- Testimonials Section -->
+<div *ngIf="!loading" class="px-4 sm:px-10 mt-32 slide-in-top">
+  <div class="max-w-7xl w-full mx-auto">
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="col-span-2 slide-in-left">
+        <h2 class="md:text-4xl text-3xl font-semibold mb-6">What our happy founders say</h2>
+        <p>Hear from some of the founders whose projects have been successfully funded on our platform. See how their businesses have grown with the support of generous investors.</p>
+      </div>
+      <div class="flex space-x-4 items-end justify-end slide-in-right">
+        <div class="bg-white w-10 h-10 grid items-center justify-center rounded-full shrink-0 cursor-pointer">
+          <i class="pi pi-chevron-left text-[#333]" style="font-size: 1.0rem;"></i>
+        </div>
+        <div class="bg-black w-10 h-10 grid items-center justify-center rounded-full shrink-0 cursor-pointer">
+          <i class="pi pi-chevron-right text-white" style="font-size: 1.0rem;"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid md:grid-cols-3 gap-10 mt-16">
+      <div class="testimonial-card hover:scale-105 transition-transform duration-300">
+        <div class="flex items-center slide-in-left">
+          <img src="assets/team-1.webp" class="w-12 h-12 rounded-full" />
+          <div class="ml-4">
+            <h4 class="font-semibold">John Doe</h4>
+            <p class="mt-1 text-xs text-gray-400">Founder of GreenTech</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p>Thanks to this platform, I was able to secure the funding needed to take my eco-friendly technology startup to the next level. The process was seamless, and I could connect with like-minded investors.</p>
+        </div>
+        <div class="flex space-x-2 mt-6">
+          <img class="w-5" src="assets/star.svg" alt="Star 1" />
+          <img class="w-5" src="assets/star.svg" alt="Star 2" />
+          <img class="w-5" src="assets/star.svg" alt="Star 3" />
+          <img class="w-5" src="assets/star-1.svg" alt="Star 4" />
+          <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+        </div>
+      </div>
+      <div class="testimonial-card hover:scale-105 transition-transform duration-300">
+        <div class="flex items-center slide-in-bottom">
+          <img src="assets/team-2.webp" class="w-12 h-12 rounded-full" />
+          <div class="ml-4">
+            <h4 class="font-semibold">Mark Adair</h4>
+            <p class="mt-1 text-xs text-gray-400">Founder of Alpha Innovations</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p>We were struggling to secure traditional funding, but this platform allowed us to showcase our vision and attract the right investors. Now, we're on our way to creating groundbreaking products.</p>
+        </div>
+        <div class="flex space-x-2 mt-6">
+          <img class="w-5" src="assets/star.svg" alt="Star 1" />
+          <img class="w-5" src="assets/star.svg" alt="Star 2" />
+          <img class="w-5" src="assets/star.svg" alt="Star 3" />
+          <img class="w-5" src="assets/star.svg" alt="Star 4" />
+          <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+        </div>
+      </div>
+      <div class="testimonial-card hover:scale-105 transition-transform duration-300">
+        <div class="flex items-center slide-in-right">
+          <img src="assets/team-3.webp" class="w-12 h-12 rounded-full" />
+          <div class="ml-4">
+            <h4 class="font-semibold">Simon Konecki</h4>
+            <p class="mt-1 text-xs text-gray-400">Founder of Labar Tech</p>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p>This platform has given my startup the exposure we needed. We successfully raised the capital required to kickstart our product development and expand into new markets.</p>
+        </div>
+        <div class="flex space-x-2 mt-6">
+          <img class="w-5" src="assets/star.svg" alt="Star 1" />
+          <img class="w-5" src="assets/star.svg" alt="Star 2" />
+          <img class="w-5" src="assets/star.svg" alt="Star 3" />
+          <img class="w-5" src="assets/star.svg" alt="Star 4" />
+          <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,25 @@
+<!-- Success Notification -->
+<div *ngIf="type === 'success'"
+  class="flex items-center bg-green-600 text-white p-2 rounded-lg relative top-right-notification"
+  [ngClass]="{'fade-in': !fadeOut, 'fade-out': fadeOut}" role="alert">
+  <div class="flex items-center">
+    <i class="pi pi-check-circle mr-3" style="font-size: 1.5rem; color: white;"></i>
+    <strong class="font-bold text-sm mr-2 text-white">Success!</strong>
+  </div>
+  <span class="block sm:inline text-sm flex-grow ml-2 text-white">{{ message }}</span>
+  <i class="pi pi-times text-white rounded-lg transition-all p-2 cursor-pointer"
+    style="font-size: 1.0rem; margin-left: 10px;" (click)="handleClose()"></i>
+</div>
+
+<!-- Error Notification -->
+<div *ngIf="type === 'error'"
+  class="flex items-center bg-red-600 text-white p-2 rounded-lg relative top-right-notification"
+  [ngClass]="{'fade-in': !fadeOut, 'fade-out': fadeOut}" role="alert">
+  <div class="flex items-center">
+    <i class="pi pi-exclamation-circle mr-3" style="font-size: 1.5rem; color: white;"></i>
+    <strong class="font-bold text-sm mr-2 text-white">Error!</strong>
+  </div>
+  <span class="block sm:inline text-sm flex-grow ml-2 text-white">{{ message }}</span>
+  <i class="pi pi-times text-white rounded-lg transition-all p-2 cursor-pointer"
+    style="font-size: 1.0rem; margin-left: 10px;" (click)="handleClose()"></i>
+</div>

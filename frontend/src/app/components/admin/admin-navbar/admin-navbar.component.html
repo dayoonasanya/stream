@@ -1,0 +1,67 @@
+ <nav class="bg-white shadow-none w-full h-[70px] py-2 px-6 flex items-center justify-between">
+  <div></div>
+
+  <div class="flex items-center space-x-6">
+    <button (click)="toggleAddAdminForm()" class="bg-[#3949ab] flex items-center px-4 py-2 rounded text-white font-semibold hover:bg-[#2c3881] transition duration-300">
+      <i class="pi pi-plus-circle text-white mr-2"></i>
+      <span>Add Admin</span>
+    </button>
+
+    <a [routerLink]="['/admin/dashboard']" class="bg-[#3949ab] w-10 h-10 flex items-center justify-center rounded hover:bg-[#2c3881] transition duration-300">
+      <i class="pi pi-objects-column text-white text-xl"></i>
+    </a>
+
+    <div class="relative">
+      <a [routerLink]="['/admin']" class="bg-[#3949ab] w-10 h-10 flex items-center justify-center rounded hover:bg-[#2c3881] transition duration-300 relative">
+        <i class="pi pi-bell text-white text-xl"></i>
+      </a>
+      <span class="absolute bottom-0 right-0 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
+        3
+      </span>
+    </div>
+
+    <a [routerLink]="['/admin/profile']" class="bg-[#3949ab] w-10 h-10 flex items-center justify-center rounded hover:bg-[#2c3881] transition duration-300">
+      <i class="pi pi-spin pi-cog text-white text-xl"></i>
+    </a>
+    
+    <div class="relative cursor-pointer">
+      <img [src]="avatarUrl" alt="Profile Image" class="w-10 h-10 rounded-full border-white" />
+      <span class="h-3 w-3 rounded-full bg-green-600 border-2 border-white block absolute bottom-0 right-0"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center"
+     *ngIf="showAddAdminForm"
+     [class.slide-in]="showAddAdminForm"
+     [class.slide-out]="!showAddAdminForm">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/3 relative">
+    <h3 class="text-xl font-semibold mb-4">Create New Admin</h3>
+    <form [formGroup]="addAdminForm" (ngSubmit)="onSubmitAddAdmin()">
+      <div class="mb-4 relative">
+        <i class="pi pi-envelope absolute left-3 top-2.5 text-gray-500"></i>
+        <input type="email" formControlName="email" id="email" class="w-full p-2 pl-10 border rounded icon-input" placeholder="Email">
+      </div>
+      <div class="mb-4 relative">
+        <i class="pi pi-lock absolute left-3 top-2.5 text-gray-500"></i>
+        <input type="password" formControlName="password" id="password" class="w-full p-2 pl-10 border rounded icon-input" placeholder="Password">
+      </div>
+      <div class="flex justify-end">
+        <button type="button" class="bg-[#2c3881] text-white px-4 py-2 rounded mr-4" (click)="toggleAddAdminForm()">
+          <i class="pi pi-times mr-2"></i>Cancel
+        </button>
+        <button type="submit" class="bg-[#3949ab] text-white px-4 py-2 rounded">
+          <i class="pi pi-plus mr-2"></i>Create
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showNotification" class="fixed top-4 right-4 z-50">
+  <app-notification 
+    [message]="notificationMessage" 
+    [type]="notificationType" 
+    (close)="showNotification = false">
+  </app-notification>
+</div>

@@ -1,0 +1,38 @@
+<div class="max-w-lg mx-auto mt-20 bg-white shadow-lg rounded-lg p-8">
+  <h1 class="text-4xl font-semibold text-blue-700 mb-8 text-center"></h1>
+
+  <form [formGroup]="transactionForm" (ngSubmit)="processPayment()" class="space-y-8">
+    <div class="relative">
+      <label for="amount" class="block text-sm font-semibold text-gray-800">Amount</label>
+      <input type="number" id="amount" formControlName="amount" 
+             class="mt-2 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition ease-in-out duration-150" 
+             placeholder="Enter amount">
+      <div *ngIf="transactionForm.get('amount')?.invalid && transactionForm.get('amount')?.touched" class="absolute text-red-600 text-sm">
+        Amount is required and should be greater than 0.
+      </div>
+    </div>
+
+    <div class="relative">
+      <label for="projectId" class="block text-sm font-semibold text-gray-800">Project ID</label>
+      <input type="text" id="projectId" formControlName="projectId" 
+             class="mt-2 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition ease-in-out duration-150" 
+             placeholder="Enter Project ID">
+    </div>
+
+    <div class="relative">
+      <label for="investorId" class="block text-sm font-semibold text-gray-800">Investor ID</label>
+      <input type="text" id="investorId" formControlName="investorId" 
+             class="mt-2 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition ease-in-out duration-150" 
+             placeholder="Enter Investor ID">
+    </div>
+
+    <!-- Stripe Card Element -->
+    <div id="card-element" class="mt-4 p-3 w-full border border-gray-300 rounded-md shadow-sm"></div>
+    
+    <button type="submit" [disabled]="isProcessing" 
+            class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition ease-in-out duration-150 focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 disabled:opacity-50">
+      {{ isProcessing ? 'Processing...' : 'Pay' }}
+    </button>
+  </form>
+</div>
+<app-footer></app-footer>

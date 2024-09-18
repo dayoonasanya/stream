@@ -1,0 +1,48 @@
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-bottom {
+  opacity: 0;
+  animation: slideInBottom 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding-top: 10px;
+}
+
+.hidden {
+  display: none;
+}

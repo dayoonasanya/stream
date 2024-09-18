@@ -1,0 +1,145 @@
+<!-- <nav
+  class="bg-white shadow-lg h-screen fixed top-0 left-0 min-w-[220px] py-4 px-6 font-[sans-serif] flex flex-col overflow-auto">
+
+  <div class="flex flex-wrap items-center cursor-pointer">
+    <div class="relative">
+      <img [src]="avatarUrl" class="w-12 h-12 rounded-full border-white" />
+      <span class="h-3 w-3 rounded-full bg-green-600 border-2 border-white block absolute bottom-0 right-0"></span>
+    </div>
+
+    <div class="ml-4">
+      <p class="text-sm text-[#3949ab] font-semibold">{{ userName }}</p>
+      <p class="text-xs text-gray-500 mt-0.5">Admin</p>
+    </div>
+  </div>
+
+  <div class="relative bg-gray-100 px-4 py-3 rounded-md mt-6">
+    <i class="pi pi-search w-4 mr-4 inline text-[#3949ab]"></i>
+    <input class="text-sm text-[#3949ab] outline-none bg-transparent px-1 max-w-[130px]" placeholder="Search..." />
+  </div>
+
+  <ul class="space-y-4 pl-3 flex-1 mt-10">
+    <li>
+      <a [routerLink]="['/admin/dashboard']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-objects-column w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/users']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-user w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Users</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/investors']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-users w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Investors</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/organizations']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-stop w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Organizations</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/startups']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-clone w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Startups</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/projects']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-tags w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Projects</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/admin/profile']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-spin pi-cog w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="space-y-8 pl-3 mt-8">
+    <li>
+      <a [routerLink]="['/dashboard']"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-question-circle w-[18px] h-[24px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Help Center</span>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" (click)="onLogout()"
+        class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-sign-out w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+ -->
+
+ <nav class="bg-white shadow-lg h-screen fixed top-0 left-0 min-w-[220px] py-4 px-6 font-[sans-serif] flex flex-col overflow-auto">
+
+  <!-- User Info -->
+  <div class="flex flex-wrap items-center cursor-pointer">
+    <div class="relative">
+      <img [src]="avatarUrl" class="w-12 h-12 rounded-full border-white" />
+      <span class="h-3 w-3 rounded-full bg-green-600 border-2 border-white block absolute bottom-0 right-0"></span>
+    </div>
+
+    <div class="ml-4">
+      <p class="text-sm text-[#3949ab] font-semibold">{{ userName }}</p>
+      <p class="text-xs text-gray-500 mt-0.5">Admin</p>
+    </div>
+  </div>
+
+  <!-- Search Box -->
+  <div class="relative bg-gray-100 px-4 py-3 rounded-md mt-6">
+    <i class="pi pi-search w-4 mr-4 inline text-[#3949ab]"></i>
+    <input 
+      [(ngModel)]="searchTerm" 
+      (input)="onSearchChange(searchTerm)" 
+      class="text-sm text-[#3949ab] outline-none bg-transparent px-1 max-w-[130px]" 
+      placeholder="Search..." />
+  </div>
+
+  <!-- Sidebar Links -->
+  <ul class="space-y-4 pl-3 flex-1 mt-10">
+    <li *ngFor="let link of filteredLinks">
+      <a [routerLink]="[link.route]"
+         class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i [class]="link.icon + ' w-[18px] h-[18px] mr-4'" style="font-size: 1.2rem;"></i>
+        <span>{{ link.label }}</span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Other Links -->
+  <ul class="space-y-8 pl-3 mt-8">
+    <li>
+      <a [routerLink]="['/dashboard']"
+         class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-question-circle w-[18px] h-[24px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Help Center</span>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" (click)="onLogout()"
+         class="text-[#3949ab] font-semibold text-sm flex items-center rounded-md left-0 hover:left-1 relative transition-all">
+        <i class="pi pi-sign-out w-[18px] h-[18px] mr-4" style="font-size: 1.2rem;"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</nav>

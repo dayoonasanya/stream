@@ -1,0 +1,86 @@
+<div class="container mx-auto mt-10 max-w-3xl bg-white shadow-lg rounded-lg p-6 md:p-8">
+  <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Create Investor Profile</h1>
+
+  <form [formGroup]="investorForm" (ngSubmit)="onSubmit()" class="space-y-5">
+    
+    <!-- Investment Budget -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="w-full">
+        <label for="investmentBudget" class="block text-sm font-medium text-gray-700">Investment Budget (USD)</label>
+        <input 
+          type="number" 
+          id="investmentBudget" 
+          formControlName="investmentBudget" 
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" 
+          placeholder="Enter investment budget">
+      </div>
+    </div>
+
+    <!-- Interests Section -->
+    <div class="w-full">
+      <label class="block text-sm font-medium text-gray-700">Interests</label>
+      <div formArrayName="interests" class="space-y-2 mt-2">
+        <div *ngFor="let interest of interests.controls; let i = index" class="flex flex-col md:flex-row gap-3 items-center">
+          <input 
+            type="text" 
+            [formControlName]="i" 
+            class="p-2 w-full md:w-2/3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" 
+            placeholder="Enter interest">
+          <button 
+            type="button" 
+            (click)="removeInterest(i)" 
+            class="bg-red-500 text-white px-3 py-1.5 rounded-md hover:bg-red-600 shadow-sm w-full md:w-auto">
+            Remove
+          </button>
+        </div>
+      </div>
+      <button 
+        type="button" 
+        (click)="addInterest()" 
+        class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 shadow-md mt-3">
+        + Add Interest
+      </button>
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="w-full">
+      <label class="block text-sm font-medium text-gray-700">Social Media Links</label>
+      <div formArrayName="socialMedia" class="space-y-2 mt-2">
+        <div *ngFor="let social of socialMedia.controls; let i = index" [formGroupName]="i" class="flex flex-col md:flex-row gap-3 items-center">
+          <input 
+            type="text" 
+            formControlName="platform" 
+            placeholder="Platform" 
+            class="p-2 w-full md:w-1/4 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
+          <input 
+            type="url" 
+            formControlName="url" 
+            placeholder="URL" 
+            class="p-2 w-full md:w-1/2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
+          <button 
+            type="button" 
+            (click)="removeSocialMedia(i)" 
+            class="bg-red-500 text-white px-3 py-1.5 rounded-md hover:bg-red-600 shadow-sm w-full md:w-auto">
+            Remove
+          </button>
+        </div>
+      </div>
+      <button 
+        type="button" 
+        (click)="addSocialMedia()" 
+        class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 shadow-md mt-3">
+        + Add Social Media
+      </button>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-right mt-4">
+      <button 
+        type="submit" 
+        [disabled]="isLoading" 
+        class="bg-indigo-600 text-white px-5 py-2 rounded-md hover:bg-indigo-700 shadow-lg">
+        {{ isLoading ? 'Submitting...' : 'Create Profile' }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<nav class="bg-whiteh-screen fixed top-14 left-0 w-48 py-4 font-[sans-serif] overflow-auto shadow-md">
+  <!-- Sidebar Navigation -->
+  <ul class="space-y-1 mt-6">
+    <!-- Dashboard Link -->
+    <li>
+      <a [routerLink]="['/home/dashboard']" class="text-white text-sm flex flex-col items-center bg-[#22284f] rounded px-3 py-4 transition-all ml-4 mr-4 mb-4 mt-4">
+        <i class="pi pi-home text-lg mb-2"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- Insights Link -->
+    <li>
+      <a [routerLink]="['/home/insights']" class="text-black text-sm flex flex-col items-center hover:bg-[#22284f] rounded px-3 py-4 transition-all ml-1 mr-1">
+        <i class="pi pi-chart-line text-lg mb-2"></i>
+        <span>Insight</span>
+      </a>
+    </li>
+    <!-- Products Link -->
+    <li>
+      <a [routerLink]="['/home/products']" class="text-white text-sm flex flex-col items-center hover:bg-[#22284f] rounded px-3 py-4 transition-all ml-1 mr-1">
+        <i class="pi pi-box text-lg mb-2"></i>
+        <span>Product</span>
+      </a>
+    </li>    
+  </ul>
+</nav>

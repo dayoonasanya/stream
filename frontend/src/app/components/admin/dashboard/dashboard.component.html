@@ -1,0 +1,53 @@
+<!-- Cards Section -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ml-4 mb-2">
+  <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center animate-count">
+    <h6 class="text-transparent bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500 mb-0">Total Users</h6>
+    <h4 class="font-bold">
+      <span class="text-3xl count" id="totalUsers">{{ totalUsers }}</span>
+    </h4>
+  </div>
+  
+  <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center animate-count">
+    <h6 class="text-transparent bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500 mb-0">Total Organizations</h6>
+    <h4 class="font-bold">
+      <span class="text-3xl count" id="totalOrganizations">{{ totalOrganizations }}</span>
+    </h4>
+  </div>
+  
+  <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center animate-count">
+    <h6 class="text-transparent bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500 mb-0">Total Startups</h6>
+    <h4 class="font-bold">
+      <span class="text-3xl count" id="totalStartups">{{ totalStartups }}</span>
+    </h4>
+  </div>
+  
+  <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center animate-count">
+    <h6 class="text-transparent bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500 mb-0">Total Projects</h6>
+    <h4 class="font-bold">
+      <span class="text-3xl count" id="totalProjects">{{ totalProjects }}</span>
+    </h4>
+  </div>
+</div>
+
+<!-- Charts Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 ml-4 mt-2">
+  <!-- Bubble Chart -->
+  <div class="bg-white p-6 shadow-lg rounded-lg">
+    <h3 class="text-xl font-semibold mb-4">User Counts</h3>
+    <canvas id="hs-bubble-chart"></canvas>
+  </div>
+
+  <!-- Curved Area Chart -->
+  <div class="bg-white p-6 shadow-lg rounded-lg">
+    <h3 class="text-xl font-semibold mb-4">Transactions</h3>
+    <canvas id="hs-curved-area-charts"></canvas>
+  </div>
+</div>
+
+<!-- Major Card Below Charts -->
+<div class="py-4 border border-dashed rounded-lg border-slate-400 text-center animate-count mt-2 ml-4">
+  <h6 class="text-transparent bg-clip-text bg-gradient-to-tl from-purple-700 to-pink-500 mb-0">Overal Insights</h6>
+  <h4 class="font-bold text-3xl">
+    <!-- Overall Insights -->
+  </h4>
+</div>

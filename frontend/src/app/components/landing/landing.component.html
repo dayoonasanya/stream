@@ -1,0 +1,277 @@
+<app-navbar></app-navbar>
+<body class="max-w-[1920px] mx-auto text-black text-sm py-10">
+  <div class="bg-white">
+    <div class="lg:min-h-[560px] bg-blue-100 px-4 sm:px-10">
+      <div class="max-w-7xl w-full mx-auto py-16">
+        <div class="grid lg:grid-cols-2 justify-center items-center gap-10">
+          <div>
+            <h1 class="md:text-5xl text-4xl font-bold mb-6 md:!leading-[55px]">Empower Startups with Smart Funding</h1>
+            <p class="text-base leading-relaxed">Our platform offers advanced funding solutions to projects by helping startups track performance and gain insights from investors. With stream, you'll be able to grow faster and connect with the right investors to fuel your success.</p>
+            <div class="flex flex-wrap gap-y-4 gap-x-8 mt-8">
+              <button
+                class='bg-black hover:bg-[#222] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4'>
+                <a [routerLink]="['/register']">Get started</a>
+                <i class="pi pi-arrow-circle-right ml-2"></i>
+              </button>
+              <button
+                class='bg-transparent border-2 border-[#333] flex items-center transition-all font-semibold rounded-md px-5 py-2'>
+                <a [routerLink]="['/contact-us']">Contact Us</a>
+                <i class="pi pi-phone ml-2"></i>
+              </button>
+            </div>
+          </div>
+          <div class="max-lg:mt-12 h-full">
+            <img src="assets/hero.webp" alt="banner img" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="features" class="mt-28 px-4 sm:px-10">
+      <div class="max-w-7xl w-full mx-auto">
+        <div class="grid lg:grid-cols-2 items-center gap-10">
+          <!-- Slide-in from left animation for the text -->
+          <div class="slide-in-left">
+            <h2 class="md:text-4xl text-3xl font-semibold mb-6">A Smarter Way to Connect Startups with Investors</h2>
+            <p>
+              Our platform provides a streamlined approach for startups and investors to connect. Entrepreneurs can easily 
+              showcase their projects to a global network of potential backers, while investors can discover innovative businesses 
+              with high growth potential.
+            </p>
+            <button class='bg-black hover:bg-[#222] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4 mt-8'>
+              <a [routerLink]="['/features']">Learn more</a>
+              <i class="pi pi-arrow-circle-right ml-2"></i>
+            </button>
+          </div>
+    
+          <!-- Slide-in from bottom animation for the features grid -->
+          <div class="grid sm:grid-cols-2 gap-8 slide-in-bottom">
+            <div class="text-center bg-blue-100 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] transition-all rounded-xl p-6">
+              <img src="assets/cog.svg" alt="Customization Image" class="w-12 inline-block bg-blue-100 p-3 rounded-full" />
+              <h3 class="text-base font-semibold mt-6 mb-2">Customization</h3>
+              <a href="/" class="text-blue-600 font-bold inline-block">Tailor our product to suit your needs</a>
+            </div>
+            <div class="text-center bg-white hover:shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] transition-all rounded-xl p-6 hover:bg-blue-100">
+              <img src="assets/security-1.svg" alt="Security Image" class="w-12 inline-block bg-blue-100 p-3 rounded-full" />
+              <h3 class="text-base font-semibold mt-6 mb-2">Security</h3>
+              <a href="/" class="text-blue-600 font-bold inline-block ">Your data is protected by the latest security measures</a>
+            </div>
+            <div class="text-center bg-white hover:shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] transition-all rounded-xl p-6 hover:bg-blue-100">
+              <img src="assets/hand.svg" alt="Support Image" class="w-12 inline-block bg-blue-100 p-3 rounded-full" />
+              <h3 class="text-base font-semibold mt-6 mb-2">Support</h3>
+              <a href="/" class="text-blue-600 font-bold inline-block">24/7 customer support for all your inquiries</a>
+            </div>
+            <div class="text-center bg-white hover:shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] transition-all rounded-xl p-6 hover:bg-blue-100">
+              <img src="assets/graph.svg" alt="Performance Image" class="w-12 inline-block bg-blue-100 p-3 rounded-full" />
+              <h3 class="text-base font-semibold mt-6 mb-2">Performance</h3>
+              <a href="/" class="text-blue-600 font-bold inline-block ">Experience blazing-fast performance with our product</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div id="about" class="px-4 sm:px-10 mt-28">
+      <div class="max-w-7xl w-full mx-auto">
+        <div class="grid md:grid-cols-2 items-center gap-10">
+          <!-- Slide in from bottom for the image -->
+          <div class="w-full h-full slide-in-bottom">
+            <img src="assets/team.webp" alt="Premium Benefits" class="w-full h-full object-cover" />
+          </div>
+          
+          <!-- Slide in from left for the text content -->
+          <div class="slide-in-left">
+            <h2 class="md:text-4xl text-3xl font-semibold mb-6">Innovative Solutions for Growing Startups</h2>
+            <p>
+              Our platform is designed to empower startups by connecting them with investors who believe in innovation. 
+              We foster a community where groundbreaking ideas can thrive, and businesses can secure the funding they need to succeed. 
+              With a streamlined interface and powerful features, we help you present your projects, 
+              attract investors, and turn your vision into reality.
+            </p>
+    
+            <div class="mt-8">
+              <div class="flex items-center">
+                <img src="assets/me.webp" class="w-12 h-12 rounded-full" />
+                <div class="ml-4">
+                  <h4 class="font-semibold text-base">Adedayo Onasanya</h4>
+                  <h5 class=" text-base">A word from our CEO</h5>
+                </div>
+              </div>
+              <div class="mt-4">
+                <p>
+                  "Our mission is to create opportunities for startups to access funding in a simple and transparent way, 
+                  ensuring that innovative businesses can grow and succeed."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="px-4 sm:px-10 mt-28">
+      <div class="max-w-7xl w-full mx-auto grid md:grid-cols-2 justify-center items-center gap-10">
+        <div>
+          <h2 class="md:text-4xl text-3xl font-semibold mb-6">100% Secure your data</h2>
+          <p>
+            Your data's security is our top priority. We use industry-leading encryption and security protocols 
+            to ensure that all sensitive information is fully protected. Our platform is designed to safeguard both investors and 
+            startups, providing a safe environment for secure transactions and confidential data handling
+          </p>
+          <button
+            class="bg-black hover:bg-[#222] text-white flex items-center transition-all font-semibold rounded-md px-5 py-4 mt-8">
+            Read more
+            <i class="pi pi-arrow-circle-right ml-2" style="font-size: 1rem"></i>
+          </button>
+        </div>
+        <div class="w-full h-full">
+          <img src="assets/login.webp" alt="feature" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 sm:px-10 mt-28">
+      <div class="max-w-7xl w-full mx-auto">
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="col-span-2">
+            <h2 class="md:text-4xl text-3xl font-semibold mb-6">What our happy founders say</h2>
+            <p>Hear from some of the founders whose projects have been successfully funded on our platform. See how their businesses have grown with the support of generous investors.</p>
+          </div>
+          <div class="flex space-x-4 items-end justify-end">
+            <div class="bg-white w-10 h-10 grid items-center justify-center rounded-full shrink-0 cursor-pointer">
+              <i class="pi pi-chevron-left text-[#333]" style="font-size: 1.0rem;"></i>
+            </div>
+            <div class="bg-black w-10 h-10 grid items-center justify-center rounded-full shrink-0 cursor-pointer">
+              <i class="pi pi-chevron-right text-white" style="font-size: 1.0rem;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 mt-16">
+          <div>
+            <div class="flex items-center">
+              <img src="assets/team-1.webp" class="w-12 h-12 rounded-full" />
+              <div class="ml-4">
+                <h4 class="font-semibold">John Doe</h4>
+                <p class="mt-1 text-xs text-gray-400">Founder of GreenTech</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p>Thanks to this platform, I was able to secure the funding needed to take my eco-friendly technology startup to the next level. The process was seamless, and I could connect with like-minded investors.</p>
+            </div>
+            <div class="flex space-x-2 mt-6">
+              <img class="w-5" src="assets/star.svg" alt="Star 1" />
+              <img class="w-5" src="assets/star.svg" alt="Star 2" />
+              <img class="w-5" src="assets/star.svg" alt="Star 3" />
+              <img class="w-5" src="assets/star-1.svg" alt="Star 4" />
+              <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <img src="assets/team-2.webp" class="w-12 h-12 rounded-full" />
+              <div class="ml-4">
+                <h4 class="font-semibold">Mark Adair</h4>
+                <p class="mt-1 text-xs text-gray-400">Founder of Alpha Innovations</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p>We were struggling to secure traditional funding, but this platform allowed us to showcase our vision and attract the right investors. Now, we're on our way to creating groundbreaking products.</p>
+            </div>
+            <div class="flex space-x-2 mt-6">
+              <img class="w-5" src="assets/star.svg" alt="Star 1" />
+              <img class="w-5" src="assets/star.svg" alt="Star 2" />
+              <img class="w-5" src="assets/star.svg" alt="Star 3" />
+              <img class="w-5" src="assets/star.svg" alt="Star 4" />
+              <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <img src="assets/team-3.webp" class="w-12 h-12 rounded-full" />
+              <div class="ml-4">
+                <h4 class="font-semibold">Simon Konecki</h4>
+                <p class="mt-1 text-xs text-gray-400">Founder of Labar Tech</p>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p>This platform has given my startup the exposure we needed. We successfully raised the capital required to kickstart our product development and expand into new markets.</p>
+            </div>
+            <div class="flex space-x-2 mt-6">
+              <img class="w-5" src="assets/star.svg" alt="Star 1" />
+              <img class="w-5" src="assets/star.svg" alt="Star 2" />
+              <img class="w-5" src="assets/star.svg" alt="Star 3" />
+              <img class="w-5" src="assets/star.svg" alt="Star 4" />
+              <img class="w-5" src="assets/star-1.svg" alt="Star 5" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-28 px-4 sm:px-10">
+      <div class="max-w-7xl mx-auto space-y-6">
+        <div class="mb-10">
+          <h2 class="md:text-4xl text-3xl font-semibold mb-6">Frequently Asked Questions</h2>
+          <p>Explore common questions and find answers to help you make the most out of our services. If you don't see your question here, feel free to contact us for assistance.</p>
+        </div>
+        <div class="divide-y">
+          <div *ngFor="let faq of faqs" class="faq-item">
+            <button type="button" class="w-full text-base text-left font-semibold py-6 flex items-center" (click)="toggleFAQ(faq)">
+              <span class="mr-4">{{ faq.question }}</span>
+              <i [class]="'pi ' + (faq.isExpanded ? 'pi-minus' : 'pi-plus') + ' ml-auto'" style="font-size: 1.0rem; font-weight: bold;"></i>
+            </button>
+            <div class="faq-answer" [ngClass]="{'open': faq.isExpanded}">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="mt-28 px-4 sm:px-10">
+      <div class="max-w-7xl mx-auto bg-gradient-to-r from-blue-200 via-blue-100 to-blue-200 py-16 px-6 relative">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="md:text-4xl text-3xl font-semibold mb-6 text-black">Subscribe to Our Newsletter</h2>
+          <div class="my-6" *ngIf="!subscriptionSuccess">
+            <p class="text-black font-semibold">Subscribe to our newsletter and stay up to date with the latest news, updates, and exclusive offers. Get valuable insights. Join our community today!</p>
+          </div>
+    
+          <div *ngIf="!subscriptionSuccess" class="max-w-2xl left-0 right-0 mx-auto w-full bg-white p-5 flex items-center shadow-lg absolute -bottom-10 rounded-md">
+            <form [formGroup]="subscribeForm" (ngSubmit)="onSubscribe()" class="w-full flex items-center">
+              <div class="flex-grow relative">
+                <i class="pi pi-envelope absolute left-3 top-4 text-gray-400"></i>
+                <input type="email" formControlName="email" placeholder="Enter your email"
+                  class="w-full bg-gray-50 py-3.5 pl-10 pr-4 text-base focus:outline-none" />
+              </div>
+              <button type="submit" [disabled]="isSubmitting"
+                class="bg-black hover:bg-[#222] text-white flex items-center transition-all font-semibold px-5 py-4 ml-4">
+                <span *ngIf="!isSubmitting">Subscribe</span>
+                <i *ngIf="isSubmitting" class="pi pi-spin pi-spinner ml-2"></i>
+              </button>
+            </form>
+          </div>
+    
+          <div class="max-w-2xl left-0 right-0 mx-auto w-full bg-white p-5 flex items-center shadow-lg absolute -bottom-10 rounded-md"
+               *ngIf="subscriptionSuccess">
+            <p class="text-green-500 text-base font-semibold text-center w-full">
+              {{ subscribeMessage }}
+            </p>
+          </div>
+    
+          <div class="max-w-2xl left-0 right-0 mx-auto w-full bg-white p-5 flex items-center shadow-lg absolute -bottom-10 rounded-md"
+               *ngIf="showSubscribeMessage && !subscriptionSuccess">
+            <p class="text-red-500 text-base font-semibold text-center w-full">
+              {{ subscribeMessage }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<app-footer></app-footer>

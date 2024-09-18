@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+
+<div class="mt-24">
+  <div *ngIf="showNotification" class="fixed top-4 right-4 z-50">
+    <app-notification 
+      [message]="notificationMessage" 
+      [type]="notificationType" 
+      (close)="showNotification = false">
+    </app-notification>
+  </div>
+
+  <div *ngIf="isLoading" class="flex justify-center items-center mt-80">
+    <i class="pi pi-spin pi-spinner text-blue-400 text-4xl"></i>
+  </div>
+
+  <div *ngIf="!isLoading" class="grid sm:grid-cols-2 items-start gap-6 p-6 mx-auto max-w-3xl bg-white  font-[sans-serif]">
+    <div>
+      <h1 class="text-gray-800 text-2xl font-extrabold">Let's Talk</h1>
+      <p class="text-sm text-gray-500 mt-4">Have some big idea or brand to develop and need help? Reach out, we'd love to connect you with investors.</p>
+
+      <div class="mt-8">
+        <h2 class="text-gray-800 text-base font-bold">Email</h2>
+        <ul class="mt-4">
+          <li class="flex items-center">
+            <div class="bg-[#e6e6e6cf] h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+              <i class="pi pi-envelope text-black"></i>
+            </div>
+            <a href="mailto:info@stream.com" class="text-black text-sm ml-3">
+              <small class="block">Mail</small>
+              <strong>info&#64;stream.com</strong>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-8">
+        <h2 class="text-gray-800 text-base font-bold">Socials</h2>
+        <ul class="flex mt-4 space-x-3">
+          <li class="bg-[#e6e6e6cf] h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+            <a href="https://www.facebook.com" target="_blank">
+              <img src="icons/face.svg" alt="LinkedIn" class="w-8 h-8">
+            </a>
+          </li>
+          <li class="bg-[#e6e6e6cf] h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+            <a href="https://www.twitter.com" target="_blank">
+              <img src="icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8">
+            </a>
+          </li>
+          <li class="bg-[#e6e6e6cf] h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+            <a href="https://www.instagram.com" target="_blank">
+              <img src="icons/instagram.svg" alt="LinkedIn" class="w-8 h-8">
+            </a>
+          </li>
+          <li class="bg-[#e6e6e6cf] h-8 w-8 rounded-full flex items-center justify-center shrink-0">
+            <a href="https://www.linkedin.com" target="_blank">
+              <img src="icons/x.png" alt="LinkedIn" class="w-8 h-8">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="w-full space-y-5">
+      <div class="relative">
+        <i class="pi pi-user absolute left-4 top-3 text-gray-400"></i>
+        <input type='text' formControlName="name" placeholder='Name' class="w-full text-gray-800 rounded-md py-2 pl-10 pr-4 border text-sm outline-blue-100" />
+      </div>
+      <div class="relative">
+        <i class="pi pi-envelope absolute left-4 top-3 text-gray-400"></i>
+        <input type='email' formControlName="email" placeholder='Email' class="w-full text-gray-800 rounded-md py-2 pl-10 pr-4 border text-sm outline-blue-100" />
+      </div>
+      <div class="relative">
+        <i class="pi pi-pencil absolute left-4 top-3 text-gray-400"></i>
+        <input type='text' formControlName="subject" placeholder='Subject' class="w-full text-gray-800 rounded-md py-2 pl-10 pr-4 border text-sm outline-blue-100" />
+      </div>
+      <div class="relative">
+        <i class="pi pi-comment absolute left-4 top-3 text-gray-400"></i>
+        <textarea formControlName="message" placeholder='Message' rows="6" class="w-full text-gray-800 rounded-md px-10 border text-sm pt-2 outline-blue-100"></textarea>
+      </div>
+
+      <button type='submit' class="text-white bg-blue-400 rounded-md text-sm px-4 py-2 w-full mt-6 flex items-center justify-center">
+        <span *ngIf="!isSubmitting">
+          <i class="pi pi-send mr-2"></i>
+          Send
+        </span>
+        <i *ngIf="isSubmitting" class="pi pi-spin pi-spinner"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

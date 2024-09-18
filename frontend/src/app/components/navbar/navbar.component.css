@@ -1,0 +1,52 @@
+a:hover {
+  cursor: pointer;
+}
+
+.fixed {
+  transition: transform 0.3s ease-in-out;
+}
+
+body, .first-section {
+  padding-top: 80px;
+}
+
+button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+.profile-card {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.profile-card a {
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.profile-card button {
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .w-12 {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  a {
+    font-size: 0.875rem;
+  }
+}

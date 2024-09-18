@@ -1,0 +1,69 @@
+<div class="container mx-auto mt-10 max-w-4xl bg-white shadow-lg rounded-lg p-8">
+  <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">
+    {{ isUpdate ? 'Update' : 'Create' }} Organization Profile
+  </h1>
+
+  <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    
+    <!-- Organization Name -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="w-full">
+        <label for="name" class="block text-sm font-medium text-gray-700">Organization Name</label>
+        <input type="text" id="name" formControlName="name" class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" placeholder="Enter organization name">
+        <div *ngIf="organizationForm.get('name')?.invalid && organizationForm.get('name')?.touched" class="text-red-600 mt-1 text-xs">
+          Organization name is required.
+        </div>
+      </div>
+
+      <!-- Website -->
+      <div class="w-full">
+        <label for="website" class="block text-sm font-medium text-gray-700">Website</label>
+        <input type="url" id="website" formControlName="website" class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" placeholder="Enter organization website URL">
+        <div *ngIf="organizationForm.get('website')?.invalid && organizationForm.get('website')?.touched" class="text-red-600 mt-1 text-xs">
+          Website is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Organization Description -->
+    <div class="w-full">
+      <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+      <textarea id="description" formControlName="description" rows="3" class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm" placeholder="Enter organization description"></textarea>
+      <div *ngIf="organizationForm.get('description')?.invalid && organizationForm.get('description')?.touched" class="text-red-600 mt-1 text-xs">
+        Description is required.
+      </div>
+    </div>
+
+    <!-- Logo Upload -->
+    <div class="w-full">
+      <label for="logoUrl" class="block text-sm font-medium text-gray-700">Logo Upload</label>
+      <input type="file" id="logoUrl" (change)="onLogoUpload($event)" class="mt-1 p-3 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+      <div *ngIf="isUploading" class="text-blue-600 mt-2 text-xs">Uploading logo...</div>
+      <img *ngIf="logoUrl" [src]="logoUrl" alt="Organization Logo" class="w-24 h-24 mt-3 rounded-full shadow-md">
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="w-full">
+      <label class="block text-sm font-medium text-gray-700">Social Media Links</label>
+      <div formArrayName="socialMedia">
+        <div *ngFor="let socialGroup of socialMediaControls.controls; let i = index" [formGroupName]="i" class="space-y-3 mt-3">
+          <div class="flex flex-col md:flex-row gap-4 items-center">
+            <input type="text" formControlName="platform" placeholder="Platform" class="p-3 w-full md:w-1/2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+            <input type="url" formControlName="url" placeholder="URL" class="p-3 w-full md:w-1/2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+            <button type="button" (click)="removeSocialMedia(i)" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 shadow-sm mt-2 md:mt-0">Remove</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" (click)="addSocialMedia()" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 shadow-sm mt-3">
+        + Add Social Media
+      </button>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-right">
+      <button type="submit" [disabled]="organizationForm.invalid || isLoading" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 shadow-lg">
+        {{ isUpdate ? 'Update' : 'Create' }} Organization
+      </button>
+    </div>
+  </form>
+</div>

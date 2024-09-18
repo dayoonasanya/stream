@@ -1,0 +1,14 @@
+{
+  "name": "stream.io",
+  "version": "1.0.0",
+  "description": "connect with your investors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stream, investors, connect, project, funding, donations"
+  ],
+  "author": "",
+  "license": "ISC"
+}
