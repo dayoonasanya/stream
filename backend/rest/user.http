@@ -1,0 +1,95 @@
+### Get All Users (Admin only)
+GET http://localhost:5000/api/users/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+###
+
+### Get User by ID (Admin or User)
+GET http://localhost:5000/api/users/a242d1d0-f657-4fa6-a902-7568f185b524
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+###
+
+### Get Users by Role (Admin only)
+GET http://localhost:5000/api/users/role/ADMIN
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+###
+
+### Update User Profile (User)
+PUT http://localhost:5000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+{
+    "profile": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "bio": "Software Engineer",
+        "avatar": "https://example.com/avatar.png"
+    },
+    "socialMediaLinks": [
+        {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/in/johndoe"
+        },
+        {
+            "platform": "GitHub",
+            "url": "https://github.com/johndoe"
+        }
+    ]
+}
+
+###
+
+### Activate/Deactivate User (Admin or User)
+PATCH http://localhost:5000/api/users/account/d300fbb1-bacf-4d8f-953f-a2c89bb08cbf/status
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+{
+    "isActivated": true
+}
+
+###
+
+### Delete User (Admin or User)
+DELETE http://localhost:5000/api/users/d300fbb1-bacf-4d8f-953f-a2c89bb08cbf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+###
+
+### Change Password (User)
+PATCH http://localhost:5000/api/users/password/change
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+Content-Type: application/json
+
+{
+    "currentPassword": "oldpassword123",
+    "newPassword": "newpassword456"
+}
+
+###
+
+### Forgot Password (Send reset link via email)
+POST http://localhost:5000/api/users/password/forgot
+Content-Type: application/json
+
+{
+    "email": "investor@example.com"
+}
+
+###
+
+### Reset Password (User submits new password)
+POST http://localhost:5000/api/users/password/reset
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImludmVzdG9yQGV4YW1wbGUuY29tIiwiaWF0IjoxNzI2MTQ5Mjk3LCJleHAiOjE3MjYxNTI4OTd9.YHvoZwkV1sloWoZDoousKkIuqWUwlBbKUJ1Z0Wc2PUg",
+    "newPassword": "123investor"
+}

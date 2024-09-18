@@ -1,0 +1,43 @@
+### Create Investor Profile (User)
+POST http://localhost:5000/api/investors/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNDk0MzgsImV4cCI6MTcyNjE1MzAzOH0.vCwTddcqnKJz92TTagojWeoVUk2XYFCdJbtvKCBUEQU
+Content-Type: application/json
+
+{
+  "investmentBudget": 50000,
+  "interests": ["Fintech", "Healthcare"],
+  "socialMedia": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/investor1"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/investor1"
+    }
+  ]
+}
+
+### Update Investor Profile (User)
+PUT http://localhost:5000/api/investors/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNDk0MzgsImV4cCI6MTcyNjE1MzAzOH0.vCwTddcqnKJz92TTagojWeoVUk2XYFCdJbtvKCBUEQU
+Content-Type: application/json
+
+{
+  "investmentBudget": 75000,
+  "interests": ["Blockchain", "AI"],
+  "socialMedia": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/investor1-updated"
+    }
+  ]
+}
+
+### Get All Investors (Admin only)
+GET http://localhost:5000/api/investors/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNDg1MDksImV4cCI6MTcyNjE1MjEwOX0.ZzVFjjnAJSkoRPGXxHflpuNmDqL39eWz2jtoYs3P_3Q
+
+### Get Investor Profile by ID (User)
+GET http://localhost:5000/api/investors/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMmU2ZjNjMS0xZGViLTRlNmUtOTI5Zi05NzBmZjQyNTI4NjQiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjY1ODE3MDEsImV4cCI6MTcyNjU4NTMwMX0.ac_r51vkA1OJP0TUabf8U5XPOQ8Tg0NXp-G_CgmClyk

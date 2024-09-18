@@ -1,0 +1,39 @@
+### Process a Transaction (Donation or Investment)
+POST http://localhost:5000/api/transactions/process
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNTI3NjAsImV4cCI6MTcyNjE1NjM2MH0.IEqFxWQ8RV6DL_M3M5XPYKYMbhGc8vDbrQdTJdSiQXE
+Content-Type: application/json
+
+{
+  "type": "INVESTMENT",
+  "amount": 1000,
+  "projectId": "f0c29d9f-b409-4e3e-8df3-56767b3db0cf",
+  "investorId": "d300fbb1-bacf-4d8f-953f-a2c89bb08cbf"
+}
+
+### Update Transaction Status (Stripe Webhook)
+POST http://localhost:5000/api/transactions/update-status
+Content-Type: application/json
+
+{
+  "stripePaymentId": "pi_3PyEOUALMsUYHLY622JMeqkl",
+  "status": "COMPLETED"
+}
+
+### Get Transaction by ID
+GET http://localhost:5000/api/transactions/a30838f3-9a90-4334-a239-f3671905575e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNTI3NjAsImV4cCI6MTcyNjE1NjM2MH0.IEqFxWQ8RV6DL_M3M5XPYKYMbhGc8vDbrQdTJdSiQXE
+
+### Get All Transactions for a Project
+GET http://localhost:5000/api/transactions/project/f0c29d9f-b409-4e3e-8df3-56767b3db0cf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNTI3NjAsImV4cCI6MTcyNjE1NjM2MH0.IEqFxWQ8RV6DL_M3M5XPYKYMbhGc8vDbrQdTJdSiQXE
+
+### Calculate Investor Share Percentage
+POST http://localhost:5000/api/transactions/calculate-share
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMzAwZmJiMS1iYWNmLTRkOGYtOTUzZi1hMmM4OWJiMDhjYmYiLCJyb2xlIjoiSU5WRVNUT1IiLCJpYXQiOjE3MjYxNTI3NjAsImV4cCI6MTcyNjE1NjM2MH0.IEqFxWQ8RV6DL_M3M5XPYKYMbhGc8vDbrQdTJdSiQXE
+Content-Type: application/json
+
+{
+  "projectId": "f0c29d9f-b409-4e3e-8df3-56767b3db0cf",
+  "investorId": "d300fbb1-bacf-4d8f-953f-a2c89bb08cbf",
+  "investmentAmount": 5000
+}

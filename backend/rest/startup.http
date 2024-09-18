@@ -1,0 +1,30 @@
+### Create Startup Profile (User)
+POST http://localhost:5000/api/startups/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "userId": "d300fbb1-bacf-4d8f-953f-a2c89bb08cbf",
+  "name": "Innovative Startup",
+  "description": "A startup focused on innovation and technology.",
+  "website": "https://innovatestartup.com"
+}
+
+### Update Startup Profile (User)
+PUT http://localhost:5000/api/startups/d300fbb1-bacf-4d8f-953f-a2c89bb08cbf/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "name": "Updated Innovative Startup",
+  "description": "Updated description of the startup.",
+  "website": "https://updatedinnovatestartup.com"
+}
+
+### Get All Startups (Admin)
+GET http://localhost:5000/api/startups/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNTE2NTUsImV4cCI6MTcyNjE1NTI1NX0.gO7-89GDJCWgb3g2cEPEyAYf0DaZuGvIIKMY6mgDZqw
+
+### Get Startup Profile by ID (User or Admin)
+GET http://localhost:5000/api/startups/d300fbb1-bacf-4d8f-953f-a2c89bb08cbf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4

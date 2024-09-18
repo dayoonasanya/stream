@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  ADMIN
+  INVESTOR
+  ORGANIZATION
+  STARTUP
+}
+
+enum ProjectType {
+  ORGANIZATION_PROJECT
+  STARTUP_PROJECT
+}
+
+enum TransactionType {
+  DONATION
+  INVESTMENT
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  password        String
+  role            UserRole
+  isActivated     Boolean   @default(true)
+  isDeleted       Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  profile         Profile?
+  organization    Organization?
+  startup         Startup?
+  investorProfile InvestorProfile?
+  transactions    Transaction[]
+
+  SocialMediaLink SocialMediaLink[]
+}
+
+model Profile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  firstName String
+  lastName  String
+  bio       String?
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Organization {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  name        String
+  description String
+  website     String?
+  logoUrl     String?
+  isVerified  Boolean  @default(false)
+  isDeleted   Boolean  @default(false)
+  socialMedia SocialMediaLink[]
+  projects    Project[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Startup {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  name        String
+  description String
+  website     String?
+  project     Project?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model InvestorProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  user             User     @relation(fields: [userId], references: [id])
+  investmentBudget Float?
+  interests        String[]
+  socialMedia      SocialMediaLink[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Project {
+  id              String      @id @default(uuid())
+  type            ProjectType
+  title           String
+  description     String
+  targetAmount    Float
+  currentAmount   Float       @default(0)
+  public          Boolean     @default(true)
+  category        String?
+  organizationId  String?
+  organization    Organization? @relation(fields: [organizationId], references: [id])
+  startupId       String?     @unique
+  startup         Startup?    @relation(fields: [startupId], references: [id])
+  images          ProjectImage[]
+  githubLink      String?     
+  landingPageLink String?     
+  transactions    Transaction[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model ProjectImage {
+  id        String   @id @default(uuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Transaction {
+  id              String          @id @default(uuid())
+  type            TransactionType
+  amount          Float
+  platformFee     Float?
+  finalAmount     Float?          
+  investorId      String
+  investor        User            @relation(fields: [investorId], references: [id])
+  projectId       String
+  project         Project         @relation(fields: [projectId], references: [id])
+  sharePercent    Float?
+  stripePaymentId String?
+  status          TransactionStatus
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+model SocialMediaLink {
+  id         String   @id @default(uuid())
+  platform   String
+  url        String
+  userId     String?
+  user       User?     @relation(fields: [userId], references: [id])
+  organizationId String?
+  organization  Organization? @relation(fields: [organizationId], references: [id])
+  investorProfileId String?
+  investorProfile InvestorProfile? @relation(fields: [investorProfileId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

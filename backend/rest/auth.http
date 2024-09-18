@@ -1,0 +1,75 @@
+### Register an Admin User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "vp.victorpreston@gmail.com",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+
+### Register an Investor User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "investor9@example.com",
+  "password": "investor123",
+  "role": "INVESTOR"
+}
+
+### Register an Organization User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "organization@example.com",
+  "password": "organization123",
+  "role": "ORGANIZATION"
+}
+
+### Register a Startup User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "startup@example.com",
+  "password": "startup123",
+  "role": "STARTUP"
+}
+
+### Login as Admin User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+### Login as Investor User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "investor9@example.com",
+  "password": "investor123"
+}
+
+### Login as Organization User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "organization@example.com",
+  "password": "organization123"
+}
+
+### Login as Startup User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "startup@example.com",
+  "password": "startup123"
+}

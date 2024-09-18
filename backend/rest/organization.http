@@ -1,0 +1,55 @@
+### Create Organization Profile (User)
+POST http://localhost:5000/api/organizations/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMjQyZDFkMC1mNjU3LTRmYTYtYTkwMi03NTY4ZjE4NWI1MjQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIiwiaWF0IjoxNzI2MTUwMjQwLCJleHAiOjE3MjYxNTM4NDB9.QOuLDUCum5dtyT0vRKU_fR4QNa_SLRHQCIC5Z6YDwAI
+Content-Type: application/json
+
+{
+  "name": "Tech Innovators",
+  "description": "A tech organization focused on innovation.",
+  "website": "https://techinnovators.com",
+  "logoUrl": "https://example.com/logo.png",
+  "socialMedia": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/company/tech-innovators"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/tech-innovators"
+    }
+  ]
+}
+
+### Update Organization Profile (User)
+PUT http://localhost:5000/api/organizations/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMjQyZDFkMC1mNjU3LTRmYTYtYTkwMi03NTY4ZjE4NWI1MjQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIiwiaWF0IjoxNzI2MTUwMjQwLCJleHAiOjE3MjYxNTM4NDB9.QOuLDUCum5dtyT0vRKU_fR4QNa_SLRHQCIC5Z6YDwAI
+Content-Type: application/json
+
+{
+  "name": "Tech Innovators Updated",
+  "description": "An updated description for Tech Innovators.",
+  "website": "https://techinnovators-updated.com",
+  "logoUrl": "https://example.com/logo-updated.png",
+  "socialMedia": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/company/tech-innovators-updated"
+    }
+  ]
+}
+
+### Set Organization Verification (Admin)
+PATCH http://localhost:5000/api/organizations/8067a5b7-7640-46aa-94d2-39a42c9fbda0/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNTAzMjQsImV4cCI6MTcyNjE1MzkyNH0.rlXRZHTkF0fO17mgSmbUM54ZJQ-TQWYSlfFGWXPfluI
+Content-Type: application/json
+
+{
+  "isVerified": true
+}
+
+### Get All Organizations (Public)
+GET http://localhost:5000/api/organizations/all
+
+### Delete Organization (Admin or User)
+DELETE http://localhost:5000/api/organizations/8067a5b7-7640-46aa-94d2-39a42c9fbda0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzMDg1MGU5Yy0xZGE3LTQzZTgtYjhiYi01NzIzZmYzOWZhNDMiLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MjYxNTAzMjQsImV4cCI6MTcyNjE1MzkyNH0.rlXRZHTkF0fO17mgSmbUM54ZJQ-TQWYSlfFGWXPfluI

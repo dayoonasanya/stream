@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Your Organization Has Been Verified!</title>
+  </head>
+  <body>
+    <h1>Hi <%= user.firstName %>,</h1>
+    <p>
+      Congratulations! Your organization, "<strong><%= organization.name %></strong>", has been successfully verified.
+    </p>
+    <p>
+      Here is a brief description of your organization:
+    </p>
+    <blockquote>
+      <%= organization.description %>
+    </blockquote>
+    <p>
+      We’re excited to see the great work your organization will accomplish!
+    </p>
+    <p>Best regards,</p>
+    <p>The Stream Team</p>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+### Create Project (Organization or Startup users)
+POST http://localhost:5000/api/projects/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyN2QwZjI1Zi05MTI0LTQ1NWItYjQ2ZC0yZTY1MzU2ODBhNWIiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIiwiaWF0IjoxNzI2NTU2NTQxLCJleHAiOjE3MjY1NjAxNDF9.tuSz8KlDgYOeTnuI_k3y7MVB0vfwNG37RXTEaTqQGbE
+Content-Type: application/json
+
+{
+  "type": "ORGANIZATION_PROJECT",
+  "title": "Innovative Tech Project",
+  "description": "A project to develop cutting-edge technology.",
+  "targetAmount": 100000,
+  "currentAmount": 0,
+  "public": true,
+  "category": "Technology",
+  "organizationId": "8067a5b7-7640-46aa-94d2-39a42c9fbda0",
+  "githubLink": "https://github.com/project-repo",
+  "landingPageLink": "https://projectlandingpage.com",
+  "images": [
+    {
+      "url": "https://projectimages.com/image1.png"
+    }
+  ]
+}
+
+### Update Project (Organization or Startup users)
+PUT http://localhost:5000/api/projects/f0c29d9f-b409-4e3e-8df3-56767b3db0cf/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "title": "Updated Tech Project",
+  "description": "Updated description of the project.",
+  "targetAmount": 150000,
+  "public": false,
+  "category": "Software",
+  "githubLink": "https://github.com/updated-project-repo",
+  "landingPageLink": "https://updatedprojectlandingpage.com",
+  "images": [
+    {
+      "url": "https://updatedprojectimages.com/image1.png"
+    }
+  ]
+}
+
+### Delete Project (Organization or Startup users)
+DELETE http://localhost:5000/api/projects/f0c29d9f-b409-4e3e-8df3-56767b3db0cf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+
+### Get Projects by Type (Public)
+GET http://localhost:5000/api/projects/type/STARTUP
+
+### Set Project Visibility (Organization or Startup users)
+PATCH http://localhost:5000/api/projects/f0c29d9f-b409-4e3e-8df3-56767b3db0cf/visibility
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "isPublic": true
+}
+
+### Categorize Project (Organization or Startup users)
+PATCH http://localhost:5000/api/projects/f0c29d9f-b409-4e3e-8df3-56767b3db0cf/category
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "category": "Artificial Intelligence"
+}
+
+### Adjust Target Amount based on Donations or Investments (Organization or Startup users)
+PATCH http://localhost:5000/api/projects/f0c29d9f-b409-4e3e-8df3-56767b3db0cf/adjust-amount
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OWRmOGU0My1kMTBiLTQ1M2QtOWM5ZS1lZjllMDQ4MmIzZWMiLCJyb2xlIjoiU1RBUlRVUCIsImlhdCI6MTcyNjE1MTUyMCwiZXhwIjoxNzI2MTU1MTIwfQ.4hwdR_5mcYN3FnVWoaM0r6DPqTXAURtaqZvzblFvsC4
+Content-Type: application/json
+
+{
+  "newAmount": 5000
+}
