@@ -3,6 +3,7 @@ import { ProjectService } from '../../../services/project/project.service';
 import { Project } from '../../../interfaces/project';
 import { NotificationComponent } from '../../../components/notification/notification.component';
 import { CommonModule } from '@angular/common';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -27,9 +28,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   loadProjects(): void {
-    this.projectService.getProjectsByType('ORGANIZATION_PROJECT').subscribe(
-      (projects: Project[]) => {
-        this.projects = projects;
+    forkJoin({
+      organizationProjects: this.projectService.getProjectsByType('ORGANIZATION_PROJECT'),
+      startupProjects: this.projectService.getProjectsByType('STARTUP_PROJECT')
+    }).subscribe(
+      ({ organizationProjects, startupProjects }) => {
+        this.projects = [...organizationProjects, ...startupProjects];
       },
       (error) => {
         this.showError('Failed to load projects');
