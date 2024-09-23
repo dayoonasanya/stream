@@ -85,12 +85,12 @@ Support: 24/7 customer support for any inquiries.
 Performance: Blazing-fast performance with an intuitive user interface.
 
 ## Screenshots
-!### Admin Dashboard
-### Admin Dashboard
+
+## Admin Dashboard
 ![Admin Dashboard](./admin/stream/frontend/screenshot/stream1.png)
 
 ### User Dashboard
-![User Dashboard](./admin/stream/frontend/screenshot/stream2.png)
+![User Dashboard](./admin/stream/frontend/screenshots/stream2.png)
 
 ## Contributing
 We welcome contributions to the Stream Project. To contribute, please follow these steps:
