@@ -37,28 +37,9 @@ Stream addresses a pressing need in the startup ecosystem by providing a platfor
 - Angular CLI (v12 or above)
 - PostgreSQL (v12 or above)
 
-### Stream Project Structure
-stream/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/    # Contains controller files for different routes
-│   │   ├── middlewares/    # Middlewares for request validation and authentication
-│   │   ├── models/         # Database models and schemas
-│   │   ├── routes/         # API routes for the backend
-│   │   └── services/       # Business logic and services
-│   ├── package.json        # Backend dependencies
-│   └── tsconfig.json       # TypeScript configuration for the backend
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── components/ # Reusable components for the frontend
-│   │   │   ├── pages/      # Different pages for the application
-│   │   │   └── services/   # Services for API calls and business logic
-│   │   └── assets/         # Static assets like images, fonts, etc.
-│   ├── angular.json        # Angular project configuration
-│   ├── package.json        # Frontend dependencies
-│   └── tsconfig.json       # TypeScript configuration for the frontend
-└── README.md               # Project documentation
+## Stream Project Structure
+<img width="701" alt="Screenshot 2024-09-23 211547" src="https://github.com/user-attachments/assets/c8c8d244-0687-48e6-8ed7-c5d0071684ba">
+
 
 ## The Project Navigation
 Admin Dashboard: http://localhost:4200/admin/dashboard
