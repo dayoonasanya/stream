@@ -87,7 +87,7 @@ Push your branch and create a pull request.
 ## License 
 MIT License
 
-Copyright (c) [2024] [Adedayo A.Onasanya]
+Copyright (c) 2024 [Adedayo A.Onasanya]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
