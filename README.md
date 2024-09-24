@@ -87,10 +87,13 @@ Performance: Blazing-fast performance with an intuitive user interface.
 ## Screenshots
 
 ## Admin Dashboard
-![Admin Dashboard](./admin/stream/frontend/screenshot/stream1.png)
 
-### User Dashboard
-![User Dashboard](./admin/stream/frontend/screenshots/stream2.png)
+<img width="936" alt="Stream1" src="https://github.com/user-attachments/assets/c460f467-9586-481a-9aa8-6fdcb152faeb">
+
+## User Dashboard
+
+<img width="946" alt="Stream2" src="https://github.com/user-attachments/assets/b78f15fc-7992-4ba7-abf2-dbfb0da38956">
+
 
 ## Contributing
 We welcome contributions to the Stream Project. To contribute, please follow these steps:
