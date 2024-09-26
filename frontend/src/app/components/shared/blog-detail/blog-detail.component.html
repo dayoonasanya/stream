@@ -1,0 +1,10 @@
+<div class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4 sm:p-6 md:p-8">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-xs sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 relative">
+    <button (click)="onClose()" class="absolute top-2 right-2 p-2 rounded-full text-blue-500 bg-white focus:outline-none" style="font-size: xx-large;">
+      ✕
+    </button>
+    <img [src]="blog.image" alt="Blog Image" class="w-full h-auto rounded-md mb-4">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-2 text-center sm:text-left">{{ blog.title }}</h2>
+    <p class="text-gray-700 text-sm sm:text-base">{{ blog.description }}</p>
+  </div>
+</div>

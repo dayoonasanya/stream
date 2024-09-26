@@ -26,6 +26,7 @@ import { UserOrgComponent } from './components/core/user-org/user-org.component'
 import { TransactionComponent } from './components/core/transaction/transaction.component';
 import { InvestorComponent } from './components/core/investor/investor.component';
 import { OrganizationComponent } from './components/shared/organization/organization.component';
+import { BlogsComponent } from './components/shared/blogs/blogs.component';
 
 export const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
     { path: 'organization', component: OrganizationComponent },
+    { path: 'blogs', component: BlogsComponent },
     {path: 'project/:id',
     component: SingleProjectComponent},
     { path: 'home', component: CoreComponent, canActivate: [AuthGuard], 
